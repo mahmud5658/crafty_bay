@@ -1,6 +1,7 @@
 import 'package:crafty_bay/presentation/ui/screens/complete_Profile_screen.dart';
 import 'package:crafty_bay/presentation/ui/widgets/app_logo.dart';
 import 'package:crafty_bay/presentation/utils/app_colors.dart';
+import 'package:crafty_bay/presentation/utils/second_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -13,8 +14,12 @@ class OtpVerificationScreen extends StatefulWidget {
   State<OtpVerificationScreen> createState() => _OtpVerificationScreenState();
 }
 class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
-
   final TextEditingController _otpTEController = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    Get.find<SecondCounter>().setAndDecreaseTime();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,15 +28,15 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
           padding: const EdgeInsets.all(24),
           child: Column(
             children: [
-              SizedBox(height: 82,),
-              AppLogoWidget(),
-              SizedBox(height: 24,),
+              const SizedBox(height: 82,),
+              const AppLogoWidget(),
+              const SizedBox(height: 24,),
               Text('Enter OTP Code',style: Theme.of(context).textTheme.headlineLarge,),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               Text('A 4 digit otp has been sent to email',style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: Colors.black54
               ),),
-              SizedBox(height: 16,),
+              const SizedBox(height: 16,),
           PinCodeTextField(
             length: 4,
             obscureText: false,
@@ -60,21 +65,23 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               }
             },
           ),
-              SizedBox(height: 16,),
-              ElevatedButton(
-                  onPressed:_onTapNextButton, child: Text('Next')),
               const SizedBox(height: 16,),
-              RichText(text: TextSpan(
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: Colors.grey
-                ),
-                text: 'This code will expire in',
-                children: [
-                  TextSpan(
-                    text: '120s',style: TextStyle(color: AppColors.themeColor)
-                  )
-                ]
-              )),
+              ElevatedButton(
+                  onPressed:_onTapNextButton, child: const Text('Next')),
+              const SizedBox(height: 16,),
+              GetBuilder<SecondCounter>(builder: (time){
+                return   RichText(text: TextSpan(
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: Colors.grey
+                    ),
+                    text: 'This code will expire in ',
+                    children: [
+                      TextSpan(
+                          text: '${time.remainingSecond}s',style: const TextStyle(color: AppColors.themeColor)
+                      )
+                    ]
+                ));
+              }),
               const SizedBox(height: 16,),
               TextButton(onPressed: (){}, child: const Text('Resend code'))
             ],
@@ -88,7 +95,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   }
   @override
   void dispose() {
-    super.dispose();
     _otpTEController.dispose();
+    super.dispose();
   }
 }

@@ -20,59 +20,59 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
          padding: const EdgeInsets.all(24),
          child: Column(
            children: [
-             SizedBox(height: 82,),
-             AppLogoWidget(),
-             SizedBox(height: 24,),
+             const SizedBox(height: 82,),
+             const AppLogoWidget(),
+             const SizedBox(height: 24,),
              Text('Complete Profile',style: Theme.of(context).textTheme.headlineLarge,),
-             SizedBox(height: 8,),
+             const SizedBox(height: 8,),
              Text('Get started with us by providing your information',textAlign: TextAlign.center,style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                color: Colors.black54
              ),),
-             SizedBox(height: 16,),
+             const SizedBox(height: 16,),
              TextFormField(
                controller: _emailTEController,
                textInputAction: TextInputAction.next,
-               decoration: InputDecoration(
+               decoration: const InputDecoration(
                    hintText: 'First Name'
                ),
              ),
-             SizedBox(height: 16,),
+             const SizedBox(height: 16,),
              TextFormField(
                controller: _emailTEController,
                textInputAction: TextInputAction.next,
-               decoration: InputDecoration(
+               decoration: const InputDecoration(
                    hintText: 'Last Name'
                ),
              ),
-             SizedBox(height: 16,),
+             const SizedBox(height: 16,),
              TextFormField(
                keyboardType: TextInputType.number,
                textInputAction: TextInputAction.next,
                controller: _emailTEController,
-               decoration: InputDecoration(
+               decoration: const InputDecoration(
                    hintText: 'Mobile'
                ),
              ),
-             SizedBox(height: 16,),
+            const SizedBox(height: 16,),
              TextFormField(
                textInputAction: TextInputAction.next,
                controller: _emailTEController,
-               decoration: InputDecoration(
+               decoration: const InputDecoration(
                    hintText: 'City'
                ),
              ),
-             SizedBox(height: 16,),
+             const SizedBox(height: 16,),
              TextFormField(
                textInputAction: TextInputAction.next,
                maxLines: 4,
                controller: _emailTEController,
-               decoration: InputDecoration(
+               decoration: const InputDecoration(
                    hintText: 'Shipping Address',
                ),
              ),
-             SizedBox(height: 16,),
+             const SizedBox(height: 16,),
              ElevatedButton(
-                 onPressed: _onTapCompleteButton, child: Text('Complete'))
+                 onPressed: _onTapCompleteButton, child: const Text('Complete'))
            ],
          ),
        ),
@@ -84,7 +84,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
   }
   @override
   void dispose() {
-    super.dispose();
     _emailTEController.dispose();
+    super.dispose();
   }
 }

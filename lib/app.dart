@@ -1,3 +1,4 @@
+import 'package:crafty_bay/controller_binder.dart';
 import 'package:crafty_bay/presentation/ui/screens/splash_screen.dart';
 import 'package:crafty_bay/presentation/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -11,13 +12,14 @@ class CraftyBayApp extends StatelessWidget {
    return GetMaterialApp(
      debugShowCheckedModeBanner: false,
      home: const SplashScreen(),
+     initialBinding: ControllerBinder(),
      theme: ThemeData(
       colorSchemeSeed: AppColors.themeColor,
        scaffoldBackgroundColor: Colors.white,
        progressIndicatorTheme: const ProgressIndicatorThemeData(
          color: AppColors.themeColor
        ),
-       textTheme: TextTheme(
+       textTheme: const TextTheme(
          headlineLarge: TextStyle(fontSize: 32,fontWeight: FontWeight.w600),
        ),
        inputDecorationTheme: InputDecorationTheme(
@@ -25,26 +27,30 @@ class CraftyBayApp extends StatelessWidget {
          enabledBorder: _outlineInputBorder(),
          focusedBorder: _outlineInputBorder(),
          errorBorder: _outlineInputBorder(),
-         contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 8)
+         contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 8),
+         hintStyle:  TextStyle(
+           fontWeight: FontWeight.w400
+         )
+
        ),
        textButtonTheme: TextButtonThemeData(
          style: TextButton.styleFrom(
            foregroundColor: AppColors.themeColor,
-           textStyle: TextStyle(fontSize: 16)
+           textStyle: const TextStyle(fontSize: 16)
          )
        ),
        elevatedButtonTheme: ElevatedButtonThemeData(
          style: ElevatedButton.styleFrom(
              backgroundColor: AppColors.themeColor,
              foregroundColor: Colors.white,
-             padding: EdgeInsets.symmetric(vertical: 12),
+             padding: const EdgeInsets.symmetric(vertical: 12),
              shape: RoundedRectangleBorder(
                  borderRadius: BorderRadius.circular(8)
              ),
-             textStyle: TextStyle(
+             textStyle: const TextStyle(
                  fontSize: 16
              ),
-             fixedSize: Size.fromWidth(double.maxFinite)
+             fixedSize: const Size.fromWidth(double.maxFinite)
          ),
        )
      ),
