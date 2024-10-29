@@ -20,24 +20,24 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
          padding: const EdgeInsets.all(24),
          child: Column(
            children: [
-             SizedBox(height: 82,),
-             AppLogoWidget(),
-             SizedBox(height: 24,),
+             const SizedBox(height: 82,),
+             const AppLogoWidget(),
+             const SizedBox(height: 24,),
              Text('Welcome back',style: Theme.of(context).textTheme.headlineLarge,),
-             SizedBox(height: 8,),
+             const SizedBox(height: 8,),
              Text('Please enter your email address',style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                color: Colors.black54
              ),),
-             SizedBox(height: 16,),
+             const SizedBox(height: 16,),
              TextFormField(
                controller: _emailTEController,
-               decoration: InputDecoration(
+               decoration: const InputDecoration(
                  hintText: 'Email'
                ),
              ),
-             SizedBox(height: 16,),
+             const SizedBox(height: 16,),
              ElevatedButton(
-                 onPressed: _onTapNext, child: Text('Next'))
+                 onPressed: _onTapNext, child: const Text('Next'))
            ],
          ),
        ),

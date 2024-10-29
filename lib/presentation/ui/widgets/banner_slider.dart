@@ -28,12 +28,12 @@ class _BannerSliderState extends State<BannerSlider> {
               builder: (BuildContext context) {
                 return Container(
                     width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: BoxDecoration(
+                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                    decoration: const BoxDecoration(
                         color: AppColors.themeColor
                     ),
                     alignment: Alignment.center,
-                    child: Text('text $i', style: TextStyle(fontSize: 16.0),)
+                    child: Text('text $i', style: const TextStyle(fontSize: 16.0),)
                 );
               },
             );

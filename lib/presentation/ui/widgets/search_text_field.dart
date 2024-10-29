@@ -10,18 +10,18 @@ class SearchTextField extends StatelessWidget {
     return TextField(
       controller: searchEditingController,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 16),
+        contentPadding:const  EdgeInsets.symmetric(horizontal: 16),
         fillColor: Colors.grey.shade300,
         filled: true,
         hintText: 'Search',
-        prefixIcon: Icon(Icons.search),
-        border: OutlineInputBorder(
+        prefixIcon: const Icon(Icons.search),
+        border: const OutlineInputBorder(
             borderSide: BorderSide.none
         ),
-        focusedBorder:  OutlineInputBorder(
+        focusedBorder: const  OutlineInputBorder(
             borderSide: BorderSide.none
         ),
-        enabledBorder:  OutlineInputBorder(
+        enabledBorder:  const OutlineInputBorder(
             borderSide: BorderSide.none
         ),
       ),
