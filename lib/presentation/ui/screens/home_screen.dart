@@ -1,102 +1,83 @@
 
-import 'package:crafty_bay/presentation/utils/app_colors.dart';
+import 'package:crafty_bay/presentation/ui/screens/category_list_screen.dart';
 import 'package:crafty_bay/presentation/utils/assets_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../widgets/app_bar_icon_button.dart';
-import '../widgets/banner_slider.dart';
-import '../widgets/search_text_field.dart';
-import '../widgets/section_header.dart';
-
+import 'package:get/get.dart';
+import '../widgets/widgets.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-
 class _HomeScreenState extends State<HomeScreen> {
-
   late final TextTheme textTheme = Theme.of(context).textTheme;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            const SizedBox(height: 16,),
-            SearchTextField(searchEditingController: TextEditingController(),),
-            const SizedBox(height: 16,),
-            const BannerSlider(),
-            const SizedBox(height: 16,),
-            _buildCategoriesSection(),
-            SectionHeader(title: 'Popular',onTap: (){},),
-            SizedBox(
-              height: 140,
-                child: _buildProductListView())
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              const SizedBox(height: 16,),
+              SearchTextField(searchEditingController: TextEditingController(),),
+              const SizedBox(height: 16,),
+              const BannerSlider(),
+              const SizedBox(height: 16,),
+              _buildCategoriesSection(),
+              _buildPopularProductSection(),
+              _buildNewProductSection(),
+              _buildSpecialProductSection()
+            ],
+          ),
         ),
       ),
     );
   }
-
-  Column _buildCategoriesSection() {
+  Widget _buildCategoriesSection() {
     return Column(
             children: [
-              SectionHeader(title: 'All Categories',onTap: (){},),
+              SectionHeader(title: 'All Categories',onTap: (){
+                Get.to(()=> CategoryListScreen());
+              },),
               const SizedBox(height: 8,),
               SizedBox(
                 height: 120,
-                child: _buildCategoriesListView(),
+                child: HorizontalCategoriesListView(),
               ),
             ],
           );
   }
-
-  Widget _buildCategoriesListView() {
-    return ListView.separated(
-                scrollDirection:Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (context,index){
-                    return Column(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                            color: AppColors.themeColor.withOpacity(.1),
-                            borderRadius: BorderRadius.circular(10)
-                          ),
-                          child: const Icon(Icons.computer,size: 48,color: AppColors.themeColor,),
-                        ),
-                        const SizedBox(height: 4,),
-                        const Text('Computers',style: TextStyle(color: AppColors.themeColor),)
-                      ],
-                    );
-              },
-                separatorBuilder: (_,__)=> const SizedBox(width: 8,)
-              );
+  Widget _buildPopularProductSection(){
+    return Column(
+      children: [
+        SectionHeader(title: 'Popular',onTap: (){},),
+        const SizedBox(
+            height: 200,
+            child: HorizontalProductListView())
+      ],
+    );
   }
-  Widget _buildProductListView() {
-    return ListView.separated(
-        scrollDirection:Axis.horizontal,
-        itemCount: 10,
-        itemBuilder: (context,index){
-          return Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                    color: AppColors.themeColor.withOpacity(.1),
-                    borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(image: AssetImage(AssetsPath.dummyProduct))
-                ),
-              ),
-            ],
-          );
-        },
-        separatorBuilder: (_,__)=> const SizedBox(width: 8,)
+  Widget _buildNewProductSection(){
+    return Column(
+      children: [
+        SectionHeader(title: 'New',onTap: (){},),
+        const SizedBox(
+            height: 200,
+            child: HorizontalProductListView())
+      ],
+    );
+  }
+  Widget _buildSpecialProductSection(){
+    return Column(
+      children: [
+        SectionHeader(title: 'Special',onTap: (){},),
+        const SizedBox(
+            height: 200,
+            child: HorizontalProductListView())
+      ],
     );
   }
   AppBar buildAppBar() {

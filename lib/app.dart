@@ -52,6 +52,13 @@ class CraftyBayApp extends StatelessWidget {
              ),
              fixedSize: const Size.fromWidth(double.maxFinite)
          ),
+       ),
+       appBarTheme: AppBarTheme(
+         backgroundColor: Colors.white,
+         titleTextStyle: TextStyle(color: Colors.black54,
+           fontSize: 20,
+           fontWeight: FontWeight.w500
+         )
        )
      ),
    );
