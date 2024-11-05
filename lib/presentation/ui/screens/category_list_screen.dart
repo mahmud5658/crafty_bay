@@ -13,18 +13,27 @@ class CategoryListScreen extends StatefulWidget {
 class _CategoryListScreenState extends State<CategoryListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Categories'),
-        leading: IconButton(onPressed: (){
-          Get.find<BottomNavBarController>().backToHome();
-        }, icon: Icon(Icons.arrow_back_ios)),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (_,__){
+        backToHome();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Categories'),
+          leading: IconButton(onPressed: (){
+           backToHome();
+          }, icon: const Icon(Icons.arrow_back_ios)),
+        ),
+        body: GridView.builder(
+          itemCount: 20,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,childAspectRatio: 0.75), itemBuilder: (context,index){
+          return const CategoryCard();
+        }),
       ),
-      body: GridView.builder(
-        itemCount: 20,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,childAspectRatio: 0.75), itemBuilder: (context,index){
-        return CategoryCard();
-      }),
     );
+  }
+  void backToHome(){
+    Get.find<BottomNavBarController>().backToHome();
   }
 }

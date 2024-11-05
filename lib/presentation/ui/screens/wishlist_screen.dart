@@ -11,24 +11,31 @@ class WishlistScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(categoryName),
-        leading: IconButton(onPressed: (){
-          Get.find<BottomNavBarController>().backToHome();
-        }, icon: Icon(Icons.arrow_back_ios)),
-      ),
-      body: GridView.builder(
-          itemCount: 20,gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: .65,
-        crossAxisCount: 3 ,
-        mainAxisSpacing: 16,
+    return PopScope(
+      canPop: false,
+     onPopInvokedWithResult: (_,__){
+       backToHome();
+     },
 
-
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(categoryName),
+          leading: IconButton(onPressed: (){
+            backToHome();
+          }, icon: Icon(Icons.arrow_back_ios)),
+        ),
+        body: GridView.builder(
+            itemCount: 20,gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: .65,
+          crossAxisCount: 3 ,
+          mainAxisSpacing: 16,),
+            itemBuilder: (context,index){
+              return ProductCard();
+            }),
       ),
-          itemBuilder: (context,index){
-            return ProductCard();
-          }),
     );
+  }
+  void backToHome(){
+    Get.find<BottomNavBarController>().backToHome();
   }
 }
