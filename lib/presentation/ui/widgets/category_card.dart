@@ -1,4 +1,6 @@
+import 'package:crafty_bay/presentation/ui/screens/product_list_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../utils/app_colors.dart';
 
@@ -9,19 +11,24 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-              color: AppColors.themeColor.withOpacity(.2),
-              borderRadius: BorderRadius.circular(10)
+    return GestureDetector(
+      onTap: (){
+        Get.to(()=> const ProductListScreen(categoryName: 'Electronics'));
+      },
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+                color: AppColors.themeColor.withOpacity(.2),
+                borderRadius: BorderRadius.circular(10)
+            ),
+            child: const Icon(Icons.computer,size: 48,color: AppColors.themeColor,),
           ),
-          child: const Icon(Icons.computer,size: 48,color: AppColors.themeColor,),
-        ),
-        const SizedBox(height: 4,),
-        const Text('Computers',style: TextStyle(color: AppColors.themeColor),)
-      ],
+          const SizedBox(height: 4,),
+          const Text('Computers',style: TextStyle(color: AppColors.themeColor),)
+        ],
+      ),
     );
   }
 }

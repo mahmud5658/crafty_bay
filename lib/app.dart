@@ -1,4 +1,5 @@
 import 'package:crafty_bay/controller_binder.dart';
+import 'package:crafty_bay/presentation/ui/screens/home_screen.dart';
 import 'package:crafty_bay/presentation/ui/screens/splash_screen.dart';
 import 'package:crafty_bay/presentation/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class CraftyBayApp extends StatelessWidget {
              foregroundColor: Colors.white,
              padding: const EdgeInsets.symmetric(vertical: 12),
              shape: RoundedRectangleBorder(
-                 borderRadius: BorderRadius.circular(8)
+                 borderRadius: BorderRadius.circular(8),
              ),
              textStyle: const TextStyle(
                  fontSize: 16
@@ -53,7 +54,7 @@ class CraftyBayApp extends StatelessWidget {
              fixedSize: const Size.fromWidth(double.maxFinite)
          ),
        ),
-       appBarTheme: AppBarTheme(
+       appBarTheme: const AppBarTheme(
          backgroundColor: Colors.white,
          titleTextStyle: TextStyle(color: Colors.black54,
            fontSize: 20,

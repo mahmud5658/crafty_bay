@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../../utils/app_colors.dart';
 import '../category_card.dart';
 
 class HorizontalCategoriesListView extends StatelessWidget {

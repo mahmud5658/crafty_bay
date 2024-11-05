@@ -1,4 +1,5 @@
 
+import 'package:crafty_bay/presentation/state_holders/bottom_nav_bar_controller.dart';
 import 'package:crafty_bay/presentation/ui/screens/category_list_screen.dart';
 import 'package:crafty_bay/presentation/utils/assets_path.dart';
 import 'package:flutter/material.dart';
@@ -40,10 +41,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
             children: [
               SectionHeader(title: 'All Categories',onTap: (){
-                Get.to(()=> CategoryListScreen());
+                Get.find<BottomNavBarController>().category();
               },),
               const SizedBox(height: 8,),
-              SizedBox(
+              const SizedBox(
                 height: 120,
                 child: HorizontalCategoriesListView(),
               ),

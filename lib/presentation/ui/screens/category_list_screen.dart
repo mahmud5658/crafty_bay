@@ -1,5 +1,7 @@
+import 'package:crafty_bay/presentation/state_holders/bottom_nav_bar_controller.dart';
 import 'package:crafty_bay/presentation/ui/widgets/category_card.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CategoryListScreen extends StatefulWidget {
   const CategoryListScreen({super.key});
@@ -14,6 +16,9 @@ class _CategoryListScreenState extends State<CategoryListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Categories'),
+        leading: IconButton(onPressed: (){
+          Get.find<BottomNavBarController>().backToHome();
+        }, icon: Icon(Icons.arrow_back_ios)),
       ),
       body: GridView.builder(
         itemCount: 20,
