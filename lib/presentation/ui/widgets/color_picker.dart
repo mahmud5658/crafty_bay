@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+
+class ColorPicker extends StatefulWidget {
+  const ColorPicker({super.key, required this.colors, required this.onColorSelected});
+
+  final List<Color> colors;
+  final Function(Color) onColorSelected;
+
+  @override
+  State<ColorPicker> createState() => _ColorPickerState();
+}
+
+class _ColorPickerState extends State<ColorPicker> {
+
+  late Color _selectedColors = widget.colors.first;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Colors',style: Theme.of(context).textTheme.titleMedium,),
+        const SizedBox(height: 16,),
+        Wrap(
+          spacing: 8,
+          children: widget.colors.map((item){
+            return GestureDetector(
+              onTap: (){
+                _selectedColors = item;
+                widget.onColorSelected(item);
+                setState(() {
+                });
+              },
+              child: CircleAvatar(
+                backgroundColor: item,
+                radius: 18,
+                child: _selectedColors==item? const Icon(Icons.check,color: Colors.white,):null,
+              ),
+            );
+          }).toList(),
+        )
+      ],
+    );
+  }
+}
