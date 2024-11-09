@@ -1,5 +1,5 @@
 import 'package:crafty_bay/presentation/state_holders/bottom_nav_bar_controller.dart';
-import 'package:crafty_bay/presentation/ui/screens/card_screen.dart';
+import 'package:crafty_bay/presentation/ui/screens/cart_screen.dart';
 import 'package:crafty_bay/presentation/ui/screens/category_list_screen.dart';
 import 'package:crafty_bay/presentation/ui/screens/home_screen.dart';
 import 'package:crafty_bay/presentation/ui/screens/wishlist_screen.dart';
@@ -20,7 +20,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   final _screens = [
     HomeScreen(),
     CategoryListScreen(),
-    CardScreen(),
+    CartScreen(),
     WishlistScreen(categoryName: 'Electronics',),
   ];
   @override
