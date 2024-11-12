@@ -1,11 +1,10 @@
 import 'package:crafty_bay/presentation/ui/screens/review_screen.dart';
 import 'package:crafty_bay/presentation/ui/widgets/product_image_slider.dart';
 import 'package:crafty_bay/presentation/ui/widgets/size_picker.dart';
-import 'package:crafty_bay/presentation/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:item_count_number_button/item_count_number_button.dart';
-
+import '../../utility/app_colors.dart';
 import '../widgets/color_picker.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
@@ -49,7 +48,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   children: [
                     Expanded(
                         child: Text(
-                      'Nike shoe 2024 latest model - new year special deal',
+                      'Nike shoe 2024 latest models - new year special deal',
                       style: Theme.of(context).textTheme.titleMedium,
                     )),
                     ItemCount(

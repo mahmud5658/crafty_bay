@@ -14,7 +14,7 @@ class SectionHeader extends StatelessWidget {
       children: [
         Text(title,
           style:  Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),),
-        TextButton(onPressed: onTap, child: const Text('See all'))
+        TextButton(onPressed: onTap, child: const Text('See All'))
       ],
     );
   }

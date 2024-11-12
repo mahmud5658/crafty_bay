@@ -1,9 +1,8 @@
 
 import 'package:crafty_bay/presentation/ui/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../../utils/app_colors.dart';
-import '../../utils/assets_path.dart';
+import '../../utility/app_colors.dart';
+import '../../utility/assets_path.dart';
 import 'package:get/get.dart';
 
 class ProductCard extends StatelessWidget {
@@ -71,7 +70,6 @@ class ProductCard extends StatelessWidget {
                   ],
                 ),
               )
-
             ],
           ),
         ),

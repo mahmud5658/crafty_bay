@@ -1,9 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:item_count_number_button/item_count_number_button.dart';
-
-import '../../utils/app_colors.dart';
-import '../../utils/assets_path.dart';
+import '../../utility/app_colors.dart';
+import '../../utility/assets_path.dart';
 
 class CardItemWidget extends StatelessWidget {
   const CardItemWidget({

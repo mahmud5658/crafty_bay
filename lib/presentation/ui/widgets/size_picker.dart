@@ -1,5 +1,7 @@
-import 'package:crafty_bay/presentation/utils/app_colors.dart';
+
 import 'package:flutter/material.dart';
+
+import '../../utility/app_colors.dart';
 
 class SizePicker extends StatefulWidget {
   const SizePicker({super.key, required this.sizes, required this.onSizeSelected});
@@ -32,7 +34,7 @@ class _SizePickerState extends State<SizePicker> {
                 });
               },
              child: Container(
-               padding: EdgeInsets.symmetric(horizontal: 8),
+               padding: const EdgeInsets.symmetric(horizontal: 8),
                decoration: BoxDecoration(
                  border: Border.all(),
                  color: _selectedSize==item?AppColors.themeColor:null

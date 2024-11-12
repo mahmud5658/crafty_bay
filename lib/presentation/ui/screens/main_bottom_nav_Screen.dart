@@ -18,10 +18,10 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   final BottomNavBarController _navBarController = Get.find<BottomNavBarController>();
 
   final _screens = [
-    HomeScreen(),
-    CategoryListScreen(),
-    CartScreen(),
-    WishlistScreen(categoryName: 'Electronics',),
+    const HomeScreen(),
+    const CategoryListScreen(),
+    const CartScreen(),
+    const WishlistScreen(categoryName: 'Electronics',),
   ];
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
           bottomNavigationBar: NavigationBar(
             selectedIndex: _navBarController.selectedIndex,
               onDestinationSelected: _navBarController.changeIndex,
-              destinations: [
+              destinations: const [
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
             NavigationDestination(icon: Icon(Icons.category_outlined), label: 'Category'),
             NavigationDestination(icon: Icon(Icons.shopping_cart), label: 'Card'),

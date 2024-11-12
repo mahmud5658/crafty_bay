@@ -1,6 +1,8 @@
-import 'package:crafty_bay/presentation/utils/assets_path.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../utility/assets_path.dart';
 
 class AppLogoWidget extends StatelessWidget {
   const AppLogoWidget({
@@ -9,6 +11,9 @@ class AppLogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(AssetsPath.appLogo,width: 100,);
+    return SvgPicture.asset(
+      AssetsPath.appLogo,
+      width: 100,
+    );
   }
 }

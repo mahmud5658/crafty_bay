@@ -2,7 +2,7 @@
 
 import 'package:get/get.dart';
 
-class SecondCounter extends GetxController{
+class SecondCounterController extends GetxController{
   late int remainingSecond;
   Future<void> setAndDecreaseTime() async{
     for(remainingSecond = 120; remainingSecond>0;){

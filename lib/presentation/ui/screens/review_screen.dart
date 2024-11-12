@@ -2,7 +2,7 @@ import 'package:crafty_bay/presentation/ui/screens/create_review_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../state_holders/bottom_nav_bar_controller.dart';
-import '../../utils/app_colors.dart';
+import '../../utility/app_colors.dart';
 import '../widgets/review_card.dart';
 
 class ReviewScreen extends StatefulWidget {
