@@ -6,7 +6,6 @@ import 'package:logger/logger.dart';
 
 class NetworkCaller {
   final Logger logger;
-
   NetworkCaller({required this.logger});
   Future<NetworkResponse> getRequest({required String url}) async {
     try {
