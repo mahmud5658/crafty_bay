@@ -1,5 +1,8 @@
 
 import 'package:crafty_bay/presentation/state_holders/bottom_nav_bar_controller.dart';
+import 'package:crafty_bay/presentation/state_holders/category_list_controller.dart';
+import 'package:crafty_bay/presentation/state_holders/slider_list_controller.dart';
+import 'package:crafty_bay/presentation/ui/widgets/center_progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -12,6 +15,12 @@ class HomeScreen extends StatefulWidget {
 }
 class _HomeScreenState extends State<HomeScreen> {
   late final TextTheme textTheme = Theme.of(context).textTheme;
+
+  @override
+  void initState(){
+    super.initState();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,9 +52,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 Get.find<BottomNavBarController>().category();
               },),
               const SizedBox(height: 8,),
-              const SizedBox(
+              SizedBox(
                 height: 120,
-                child: HorizontalCategoriesListView(),
+                child: GetBuilder<CategoryListController>(
+                  builder: (categoryListController) {
+                    return Visibility(
+                      visible: categoryListController.inProgress== false,
+                        replacement: const CenterProgressIndicator(),
+                        child:  HorizontalCategoriesListView(categoryList: categoryListController.categoryList,));
+                  }
+                ),
               ),
             ],
           );
