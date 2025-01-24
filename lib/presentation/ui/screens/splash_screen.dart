@@ -15,7 +15,6 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 2));
     Get.off(() => const EmailVerificationScreen());
   }
-
   @override
   void initState() {
     super.initState();
