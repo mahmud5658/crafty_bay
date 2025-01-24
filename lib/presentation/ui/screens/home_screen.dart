@@ -1,13 +1,11 @@
+import 'package:crafty_bay/presentation/ui/screens/category_list_screen.dart';
+import 'package:crafty_bay/presentation/ui/screens/product_list_screen.dart';
 import 'package:crafty_bay/presentation/ui/screens/search_text_field.dart';
 import 'package:crafty_bay/presentation/ui/utils/assets_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../widgets/HorizontalProductListView.dart';
-import '../widgets/ProductCard.dart';
-import '../widgets/app_bar_icon_button.dart';
-import '../widgets/banner_slider.dart';
-import '../widgets/category_card.dart';
-import '../widgets/section_header.dart';
+import 'package:get/get.dart';
+import '../widgets/widget_import.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -55,7 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         SectionHeader(
           title: "Categories",
-          onTap: () {},
+          onTap: () {
+            Get.to(()=> const CategoryListScreen());
+          },
         ),
         const SizedBox(
           height: 8,
@@ -72,7 +72,9 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         SectionHeader(
           title: "Popular",
-          onTap: () {},
+          onTap: () {
+            Get.to(()=>const ProductListScreen());
+          },
         ),
         const SizedBox(
           height: 170,
@@ -86,7 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         SectionHeader(
           title: "New",
-          onTap: () {},
+          onTap: () {
+            Get.to(()=>const ProductListScreen());
+          },
         ),
         const SizedBox(
           height: 170,
@@ -100,7 +104,9 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         SectionHeader(
           title: "Special",
-          onTap: () {},
+          onTap: () {
+            Get.to(()=>const ProductListScreen());
+          },
         ),
         const SizedBox(
           height: 170,
