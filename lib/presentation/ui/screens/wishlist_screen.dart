@@ -1,11 +1,10 @@
 import 'package:crafty_bay/presentation/state_holders/bottom_nav_controller.dart';
-import 'package:crafty_bay/presentation/ui/widgets/category_card.dart';
+import 'package:crafty_bay/presentation/ui/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CategoryListScreen extends StatelessWidget {
-  const CategoryListScreen({super.key});
-
+class WishlistScreen extends StatelessWidget {
+  const WishlistScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -20,13 +19,13 @@ class CategoryListScreen extends StatelessWidget {
                 Get.find<BottomNavController>().backToHome();
               },
               icon: const Icon(Icons.arrow_back_ios)),
-          title: const Text("Categories"),
+          title: const Text("Electronics"),
         ),
         body: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 0.9, crossAxisCount: 4),
+                childAspectRatio: 0.75, crossAxisCount: 3),
             itemBuilder: (context, index) {
-              return const CategoryCard();
+              return const ProductCard();
             }),
       ),
     );

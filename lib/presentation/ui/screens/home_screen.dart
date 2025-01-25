@@ -1,4 +1,4 @@
-import 'package:crafty_bay/presentation/ui/screens/category_list_screen.dart';
+import 'package:crafty_bay/presentation/state_holders/bottom_nav_controller.dart';
 import 'package:crafty_bay/presentation/ui/screens/product_list_screen.dart';
 import 'package:crafty_bay/presentation/ui/screens/search_text_field.dart';
 import 'package:crafty_bay/presentation/ui/utils/assets_path.dart';
@@ -48,73 +48,83 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
   Column _buildCategorySection() {
     return Column(
       children: [
         SectionHeader(
           title: "Categories",
           onTap: () {
-            Get.to(()=> const CategoryListScreen());
+            Get.find<BottomNavController>().selectCategoryTab();
           },
         ),
         const SizedBox(
           height: 8,
         ),
         const SizedBox(
-          height: 120,
-          child: HorizontalProductListView(widget: CategoryCard())
-        ),
+            height: 120,
+            child: HorizontalProductListView(widget: CategoryCard())),
       ],
     );
   }
-  Column _buildPopularSection(){
+
+  Column _buildPopularSection() {
     return Column(
       children: [
         SectionHeader(
           title: "Popular",
           onTap: () {
-            Get.to(()=>const ProductListScreen());
+            Get.to(() => const ProductListScreen());
           },
         ),
         const SizedBox(
           height: 170,
-          child: HorizontalProductListView(widget: ProductCard(),),
+          child: HorizontalProductListView(
+            widget: ProductCard(),
+          ),
         ),
       ],
     );
   }
+
   Column _buildNewSection() {
     return Column(
       children: [
         SectionHeader(
           title: "New",
           onTap: () {
-            Get.to(()=>const ProductListScreen());
+            Get.to(() => const ProductListScreen());
           },
         ),
         const SizedBox(
           height: 170,
-          child: HorizontalProductListView(widget: ProductCard(),),
+          child: HorizontalProductListView(
+            widget: ProductCard(),
+          ),
         ),
       ],
     );
   }
+
   Column _buildSpecialSection() {
     return Column(
       children: [
         SectionHeader(
           title: "Special",
           onTap: () {
-            Get.to(()=>const ProductListScreen());
+            Get.to(() => const ProductListScreen());
           },
         ),
         const SizedBox(
           height: 170,
-          child: HorizontalProductListView(widget: ProductCard(),),
+          child: HorizontalProductListView(
+            widget: ProductCard(),
+          ),
         ),
       ],
     );
   }
+
   AppBar _buildAppBar() {
     return AppBar(
       title: SvgPicture.asset(AssetsPath.logoNav),

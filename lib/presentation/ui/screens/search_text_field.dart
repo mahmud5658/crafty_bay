@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 class SearchTextField extends StatelessWidget {
   const SearchTextField({
-    super.key, required this.searchController,
+    super.key,
+    required this.searchController,
   });
   final TextEditingController searchController;
   @override
@@ -14,15 +16,9 @@ class SearchTextField extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16),
         prefixIcon: const Icon(Icons.search),
         hintText: "Search",
-        border: const OutlineInputBorder(
-            borderSide: BorderSide.none
-        ),
-        focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none
-        ),
-        enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none
-        ),
+        border: const OutlineInputBorder(borderSide: BorderSide.none),
+        focusedBorder: const OutlineInputBorder(borderSide: BorderSide.none),
+        enabledBorder: const OutlineInputBorder(borderSide: BorderSide.none),
       ),
     );
   }
