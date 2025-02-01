@@ -27,7 +27,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+          onTap: (){
+            Get.back();
+          },
+            child: const Icon(Icons.arrow_back_ios)),
         title: const Text("Product Details"),
       ),
       body: Column(

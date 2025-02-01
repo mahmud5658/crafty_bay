@@ -6,6 +6,8 @@ import 'package:crafty_bay/presentation/ui/screens/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../state_holders/slider_list_controller.dart';
+
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({super.key});
 
@@ -20,6 +22,11 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     const CartScreen(),
     const WishlistScreen()
   ];
+  @override
+  void initState() {
+    super.initState();
+    Get.find<SliderListController>().getSliderList();
+  }
   @override
   Widget build(BuildContext context) {
     return GetBuilder<BottomNavController>(builder: (bottomNavController) {
