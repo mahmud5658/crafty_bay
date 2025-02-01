@@ -6,6 +6,8 @@ import 'package:crafty_bay/presentation/ui/utils/assets_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import '../../state_holders/category_list_controller.dart';
+import '../widgets/home/horizontal_product_list_view.dart';
 import '../widgets/widget_import.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -64,9 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(
           height: 8,
         ),
-        const SizedBox(
+         SizedBox(
             height: 120,
-            child: HorizontalProductListView(widget: CategoryCard())),
+            child: GetBuilder<CategoryListController>(
+              builder: (categoryListController) {
+                return  HorizontalCategoryListView(categoryList: categoryListController.categories,);
+              }
+            )),
       ],
     );
   }
@@ -83,7 +89,6 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(
           height: 170,
           child: HorizontalProductListView(
-            widget: ProductCard(),
           ),
         ),
       ],
@@ -102,7 +107,6 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(
           height: 170,
           child: HorizontalProductListView(
-            widget: ProductCard(),
           ),
         ),
       ],
@@ -121,7 +125,6 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(
           height: 170,
           child: HorizontalProductListView(
-            widget: ProductCard(),
           ),
         ),
       ],
