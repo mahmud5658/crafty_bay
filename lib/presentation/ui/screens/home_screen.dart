@@ -1,9 +1,7 @@
 import 'package:crafty_bay/presentation/state_holders/bottom_nav_controller.dart';
 import 'package:crafty_bay/presentation/state_holders/new_product_list_controller.dart';
 import 'package:crafty_bay/presentation/state_holders/popular_product_list_controller.dart';
-import 'package:crafty_bay/presentation/state_holders/slider_list_controller.dart';
 import 'package:crafty_bay/presentation/state_holders/special_product_list_controller.dart';
-import 'package:crafty_bay/presentation/ui/screens/product_list_screen.dart';
 import 'package:crafty_bay/presentation/ui/screens/search_text_field.dart';
 import 'package:crafty_bay/presentation/ui/utils/assets_path.dart';
 import 'package:crafty_bay/presentation/ui/widgets/centered_circular_progress_indicator.dart';
@@ -87,7 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
         SectionHeader(
           title: "Popular",
           onTap: () {
-            Get.to(() => const ProductListScreen());
+            // Get.find<PopularProductListController>().getPopularProduct();
+            // Get.to(() =>  ProductListScreen(category: ,));
           },
         ),
          SizedBox(
@@ -113,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
         SectionHeader(
           title: "New",
           onTap: () {
-            Get.to(() => const ProductListScreen());
+            // Get.to(() => const ProductListScreen());
           },
         ),
          SizedBox(
@@ -140,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
         SectionHeader(
           title: "Special",
           onTap: () {
-            Get.to(() => const ProductListScreen());
+            // Get.to(() => const ProductListScreen());
           },
         ),
          SizedBox(

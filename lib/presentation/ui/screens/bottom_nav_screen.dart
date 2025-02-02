@@ -32,8 +32,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     Get.find<SliderListController>().getSliderList();
     Get.find<CategoryListController>().getCategoryList();
     Get.find<NewProductListController>().getNewProduct();
-    Get.find<PopularProductListController>().getNewProduct();
-    Get.find<SpecialProductListController>().getNewProduct();
+    Get.find<PopularProductListController>().getPopularProduct();
+    Get.find<SpecialProductListController>().getSpecialProduct();
   }
   @override
   Widget build(BuildContext context) {

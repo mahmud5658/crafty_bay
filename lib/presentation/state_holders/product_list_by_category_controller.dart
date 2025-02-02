@@ -6,19 +6,19 @@ import 'package:get/get.dart';
 
 import '../../Data/model/product_model.dart';
 
-class SpecialProductListController extends GetxController {
+class ProductListByCategoryController extends GetxController {
   bool _inProgress = false;
   bool get inProgress => _inProgress;
   List<ProductModel> _productList = [];
   List<ProductModel> get productList => _productList;
   String? _errorMessage;
   String? get errorMessage => _errorMessage;
-  Future<bool> getSpecialProduct() async {
+  Future<bool> getProductListByCategory(int categoryId) async {
     bool isSuccess = false;
     _inProgress = true;
     update();
     final NetworkResponse response = await Get.find<NetworkCaller>()
-        .getRequest(url: Urls.productListByRemark('special'));
+        .getRequest(url: Urls.productListByCategory(categoryId));
     if (response.isSuccess) {
       _productList =
           ProductListModel.fromJson(response.responseData).productList ?? [];

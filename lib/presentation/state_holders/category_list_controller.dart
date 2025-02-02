@@ -3,7 +3,7 @@ import 'package:crafty_bay/Data/model/category_model.dart';
 import 'package:get/get.dart';
 import '../../Data/model/network_response.dart';
 import '../../Data/service/network_caller.dart';
-import '../../Data/utils/Urls.dart';
+import '../../Data/utils/urls.dart';
 
 class CategoryListController extends GetxController {
   bool _inProgress = false;

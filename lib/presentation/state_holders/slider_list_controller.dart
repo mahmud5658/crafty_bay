@@ -2,7 +2,7 @@ import 'package:crafty_bay/Data/model/network_response.dart';
 import 'package:crafty_bay/Data/model/slider_list_model.dart';
 import 'package:crafty_bay/Data/model/slider_model.dart';
 import 'package:crafty_bay/Data/service/network_caller.dart';
-import 'package:crafty_bay/Data/utils/Urls.dart';
+import 'package:crafty_bay/Data/utils/urls.dart';
 import 'package:get/get.dart';
 
 class SliderListController extends GetxController {

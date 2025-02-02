@@ -1,7 +1,7 @@
 import 'package:crafty_bay/Data/model/network_response.dart';
 import 'package:crafty_bay/Data/model/product_list_model.dart';
 import 'package:crafty_bay/Data/service/network_caller.dart';
-import 'package:crafty_bay/Data/utils/Urls.dart';
+import 'package:crafty_bay/Data/utils/urls.dart';
 import 'package:get/get.dart';
 
 import '../../Data/model/product_model.dart';
