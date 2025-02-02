@@ -2,13 +2,14 @@
 import 'package:crafty_bay/presentation/ui/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../Data/model/product_model.dart';
 import '../utils/app_colors.dart';
-import '../utils/assets_path.dart';
 class ProductCard extends StatelessWidget {
   const ProductCard({
-    super.key,
+    super.key, required this.product,
   });
 
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -32,16 +33,13 @@ class ProductCard extends StatelessWidget {
                       topLeft: Radius.circular(8),
                       topRight: Radius.circular(8),
                     ),
-                    image: const DecorationImage(
-                        image: AssetImage(
-                          AssetsPath.dummyProduct,
-                        ),
-                        fit: BoxFit.contain)),
+                    image:  DecorationImage(
+                        image: NetworkImage(product.image??''),
+                        fit: BoxFit.cover)),
               ),
-              const Text(
-                'Product Name',
+               Text(product.title??'',
                 maxLines: 1,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.black54, fontWeight: FontWeight.w800),
               ),
               Padding(
@@ -49,23 +47,22 @@ class ProductCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     const Text(
-                      '\$120',
-                      style: TextStyle(
+                      Text(
+                      '\$${product.price}',
+                      style: const TextStyle(
                           color: AppColors.themeColor,
                           fontWeight: FontWeight.w500),
                     ),
-                     const Wrap(
+                      Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       spacing: 4,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: Colors.amber,
                         ),
-                        Text(
-                          '3',
-                          style: TextStyle(
+                        Text('${product.star??''}',
+                          style: const TextStyle(
                               fontWeight: FontWeight.w600,
                               color: Colors.black54),
                         )

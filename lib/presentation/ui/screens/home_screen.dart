@@ -1,8 +1,12 @@
 import 'package:crafty_bay/presentation/state_holders/bottom_nav_controller.dart';
+import 'package:crafty_bay/presentation/state_holders/new_product_list_controller.dart';
+import 'package:crafty_bay/presentation/state_holders/popular_product_list_controller.dart';
 import 'package:crafty_bay/presentation/state_holders/slider_list_controller.dart';
+import 'package:crafty_bay/presentation/state_holders/special_product_list_controller.dart';
 import 'package:crafty_bay/presentation/ui/screens/product_list_screen.dart';
 import 'package:crafty_bay/presentation/ui/screens/search_text_field.dart';
 import 'package:crafty_bay/presentation/ui/utils/assets_path.dart';
+import 'package:crafty_bay/presentation/ui/widgets/centered_circular_progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -70,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 120,
             child: GetBuilder<CategoryListController>(
               builder: (categoryListController) {
-                return  HorizontalCategoryListView(categoryList: categoryListController.categories,);
+                return  HorizontalCategoryListView(categoryList: categoryListController.categories,inProgress: categoryListController.inProgress,);
               }
             )),
       ],
@@ -86,9 +90,17 @@ class _HomeScreenState extends State<HomeScreen> {
             Get.to(() => const ProductListScreen());
           },
         ),
-        const SizedBox(
+         SizedBox(
           height: 170,
-          child: HorizontalProductListView(
+          child: GetBuilder<PopularProductListController>(
+            builder: (popularProductListController) {
+              return Visibility(
+                visible: !popularProductListController.inProgress,
+                replacement: const CenteredCircularProgressIndicator(),
+                child: HorizontalProductListView(productList: popularProductListController.productList,
+                ),
+              );
+            }
           ),
         ),
       ],
@@ -104,9 +116,18 @@ class _HomeScreenState extends State<HomeScreen> {
             Get.to(() => const ProductListScreen());
           },
         ),
-        const SizedBox(
+         SizedBox(
           height: 170,
-          child: HorizontalProductListView(
+          child: GetBuilder<NewProductListController>(
+            builder: (newProductListController) {
+              return  Visibility(
+                visible: !newProductListController.inProgress,
+                replacement: const CenteredCircularProgressIndicator(),
+                child:  HorizontalProductListView(
+                  productList: newProductListController.productList,
+                ),
+              );
+            }
           ),
         ),
       ],
@@ -122,9 +143,16 @@ class _HomeScreenState extends State<HomeScreen> {
             Get.to(() => const ProductListScreen());
           },
         ),
-        const SizedBox(
+         SizedBox(
           height: 170,
-          child: HorizontalProductListView(
+          child: GetBuilder<SpecialProductListController>(
+            builder: (specialProductListController) {
+              return Visibility(
+                visible: !specialProductListController.inProgress,
+                child: HorizontalProductListView(productList: specialProductListController.productList,
+                ),
+              );
+            }
           ),
         ),
       ],

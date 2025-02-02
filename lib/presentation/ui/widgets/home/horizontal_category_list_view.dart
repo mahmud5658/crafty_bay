@@ -4,9 +4,10 @@ import 'package:flutter/cupertino.dart';
 
 class HorizontalCategoryListView extends StatelessWidget {
   const HorizontalCategoryListView({
-    super.key, required this.categoryList,
+    super.key, required this.categoryList, required this.inProgress,
   });
   final List<CategoryModel> categoryList;
+  final bool inProgress;
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
